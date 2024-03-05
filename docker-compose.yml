@@ -1,8 +1,7 @@
 version: '3'
 services:
   leafy-postgres:
-    build: ./leafy-postgresql
-    image: leafy-postgres:5.0.0-compose
+    image: kimjoongki/leafy-postgres:20d1d662a0e49db30aca7be0761f32b5d9768369
     volumes:
       - mydata:/var/lib/postgresql/data
     deploy:
@@ -25,10 +24,8 @@ services:
           cpus: '1.5'
           memory: 512M
     restart: on-failure
-      
   leafy-front:
-    build: ./leafy-frontend
-    image: leafy-front:5.0.0-compose
+    image: kimjoongki/leafy-frontend:a7ee9b818d3b961d5de6b2e4fb510a526af06409
     environment:
       - BACKEND_HOST=leafy-backend
     ports:
